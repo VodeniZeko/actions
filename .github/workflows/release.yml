@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - run: docker build . vodenizeko/action-app
-    - run: echo '${{secrets.DOCKER_PASSWORD}}' | docker login -u ${{secrets.USERNAME}} --pasword
+    - run: docker build . -t vodenizeko/action-app
+    - run: echo '${{secrets.DOCKER_PASSWORD}}' | docker login -u ${{secrets.USERNAME}} --pasword stdin
     - run: docker push vodenizeko/action-app
   
